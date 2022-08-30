@@ -5,9 +5,9 @@ import (
 	"log"
 	"minio/config"
 )
-var minioClient *minio.Client
+var selfMinioClient *minio.Client
 func GetClient() *minio.Client {
-	return minioClient
+	return selfMinioClient
 }
 func init() {
 	endpoint, accessKeyID, secretAccessKey, useSSL := config.GetCredentials()
@@ -16,8 +16,8 @@ func init() {
 		Secure: useSSL,
 	})
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("Failed to connect to server. \n", err)
 	} else {
-		minioClient = newminioClient
+		selfMinioClient = newminioClient
 	}
 }

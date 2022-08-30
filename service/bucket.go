@@ -2,32 +2,30 @@ package service
 
 import (
 	"context"
-	"github.com/gin-gonic/gin"
+	"fmt"
 	"github.com/minio/minio-go/v7"
 	"log"
 )
 
-type  H struct {
-	mes string
-}
-func GetBuckets(minioClient *minio.Client) ([]minio.BucketInfo, error){
+func GetBucketList(minioClient *minio.Client) ([]minio.BucketInfo, error){
 	buckets, err := minioClient.ListBuckets(context.Background())
 	if err != nil {
 		return nil, err
 	}
-	for _, bucket := range buckets {
-		log.Println(bucket)
-	}
+	log.Println(fmt.Sprintf("%d buckets in all.", len(buckets)))
 	return buckets, err
 }
-func GetBucketList(c *gin.Context) {
-	//c.JSON(http.StatusOK, H{
-	//	"OK",
-	//})
-	reader, err := minioClient.GetObject(context.Background(), "my-bucketname", "my-objectname", minio.GetObjectOptions{})
+
+func IsBucketExists(minioClient *minio.Client, bucketname string) (bool, error){
+	found, err := minioClient.BucketExists(context.Background(), bucketname)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	defer reader.Close()
-	return
+
+	if !found {
+		log.Println("Bucket not found.")
+		return found, err
+	}
+	log.Println("Bucket found.")
+	return found, nil
 }
