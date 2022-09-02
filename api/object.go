@@ -44,6 +44,7 @@ func GetObjectFile(minioClient *minio.Client, bucketname, objectname, path strin
 	if err != nil {
 		log.Fatalln(err)
 	}
+	fmt.Println(fmt.Sprintf("Download %s:%s to %s successful! ", bucketname, objectname, path))
 }
 //Upload path:file to bucketname/objectname .
 func PutObjectFile(minioClient *minio.Client, bucketname, objectname, path string) {
@@ -54,6 +55,7 @@ func PutObjectFile(minioClient *minio.Client, bucketname, objectname, path strin
 	if err != nil {
 		log.Fatalln(err)
 	}
+	fmt.Println(fmt.Sprintf("Upload %s, to %s:%s successful! It's details are :", path, bucketname, objectname))
 	fmt.Println(info)
 }
 
@@ -67,7 +69,7 @@ func StatObject(minioClient *minio.Client, bucketname, objectname string) {
 		log.Fatalln(err)
 	}
 
-	log.Println(fmt.Sprintf("%+v", stat))
+	log.Println(fmt.Sprintf("Detailes of object :\n %+v", stat))
 }
 
 //Remove an object : bucketname/objectname.
@@ -82,6 +84,7 @@ func RemoveObject(minioClient *minio.Client, bucketname, objectname string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	fmt.Println(fmt.Sprintf("Remove %s:%s successful! It's details are :", bucketname, objectname))
 }
 //Remove all objects in bucketname.
 func RemoveObjects(minioClient *minio.Client, bucketname, prefix string) {

@@ -3,7 +3,6 @@ module minio
 go 1.17
 
 require (
-	github.com/fatih/color v1.13.0
 	github.com/minio/minio-go/v7 v7.0.34
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/cobra v1.5.0
@@ -11,6 +10,7 @@ require (
 
 require (
 	github.com/dustin/go-humanize v1.0.0 // indirect
+	github.com/fatih/color v1.13.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect

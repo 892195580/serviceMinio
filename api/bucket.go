@@ -53,7 +53,7 @@ func MakeBucket(minioClient *minio.Client, bucketName string) {
 
 func RemoveBucket(minioClient *minio.Client, bucketName string) {
 	// This operation will only work if your bucket is empty.
-	err := minioClient.RemoveBucket(context.Background(), "my-bucketname")
+	err := minioClient.RemoveBucket(context.Background(), bucketName)
 	if err != nil {
 		log.Fatalln(fmt.Sprintf("Failed to remove bucket : %s", bucketName), err)
 		return
