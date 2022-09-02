@@ -7,7 +7,7 @@ const (
 	selfEndpoint ="192.168.36.131:9000"
 	selfAccessKeyID = "nKNB72xEmN7A01Wz"
 	selfSecretAccessKey = "6mTdpUnPqHp5Hwc2ZO8LDLApsVKeBWJ8"
-	useSSL = true
+	useSSL = false
 )
 
 func GetCredentials() (ep, id, key string, ssl bool) {

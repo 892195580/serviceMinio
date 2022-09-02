@@ -1,12 +1,9 @@
 package main
 
+import (
+	"minio/cmd"
+)
+
 func main() {
-
-	//endpoint, _, _, _ := config.GetCredentials()
-	//minioClient := service.GetClient()
-
-
-
-
-
+	cmd.Execute()
 }
