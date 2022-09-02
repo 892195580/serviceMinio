@@ -48,7 +48,7 @@ func MakeBucket(minioClient *minio.Client, bucketName string) {
 		log.Fatalln(fmt.Sprintf("Failed to make bucket : %s", bucketName),err)
 		return
 	}
-	log.Println(fmt.Sprintf("Success to make bucket : %s", bucketName))
+	log.Println(fmt.Sprintf("Make a new bucket : %s successful!", bucketName))
 }
 
 func RemoveBucket(minioClient *minio.Client, bucketName string) {
@@ -58,7 +58,7 @@ func RemoveBucket(minioClient *minio.Client, bucketName string) {
 		log.Fatalln(fmt.Sprintf("Failed to remove bucket : %s", bucketName), err)
 		return
 	}
-	log.Println(fmt.Sprintf("Success to remove bucket : %s", bucketName))
+	log.Println(fmt.Sprintf("Remove bucket : %s successful", bucketName))
 }
 
 //todo: add to cli

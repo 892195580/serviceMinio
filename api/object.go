@@ -84,7 +84,7 @@ func RemoveObject(minioClient *minio.Client, bucketname, objectname string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	fmt.Println(fmt.Sprintf("Remove %s:%s successful! It's details are :", bucketname, objectname))
+	fmt.Println(fmt.Sprintf("Remove %s:%s successful! ", bucketname, objectname))
 }
 //Remove all objects in bucketname.
 func RemoveObjects(minioClient *minio.Client, bucketname, prefix string) {
