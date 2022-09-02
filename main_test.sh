@@ -1,4 +1,4 @@
-#!/usr/bash
+#!/bin/bash
 echo Test all programe of minio
 mgo minio bucket ls
 mgo minio bucket make apptest
